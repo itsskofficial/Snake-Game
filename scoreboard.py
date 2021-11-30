@@ -2,6 +2,8 @@ from turtle import *
 from snake import *
 from random import *
 
+f = open("high_score.txt")
+
 
 class Scoreboard(Turtle):
     def __init__(
@@ -13,10 +15,19 @@ class Scoreboard(Turtle):
         self.penup()
         self.hideturtle()
         self.setpos(0, 225)
+        self.high_score = f.read()
 
     def update_score(self):
         self.score += 1
         self.clear()
         self.write(
-            f"Score: {self.score}", False, "center", ("Times New Roman", "16", "bold")
+            f"Score: {self.score} High Score: {self.high_score}",
+            False,
+            "center",
+            ("Times New Roman", "16", "bold"),
         )
+
+    def update_high_score(self):
+        if self.score > self.high_score:
+            self.high_score = self.score
+            f.write(self.high_score)
