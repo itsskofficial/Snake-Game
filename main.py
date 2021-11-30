@@ -36,5 +36,5 @@ while play_game == "Yes":
             game_is_on = False
     play_game = textinput("Game Over", "Do you want to play again?")
     s.clear()
-
+score.update_high_score()
 s.bye()
