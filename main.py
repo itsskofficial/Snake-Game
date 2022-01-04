@@ -34,7 +34,7 @@ while play_game == "Yes":
         tail_collision = snake.check_collision_tail()
         if wall_collision == False or tail_collision == False:
             game_is_on = False
+    score.update_high_score()
     play_game = textinput("Game Over", "Do you want to play again?")
     s.clear()
-score.update_high_score()
 s.bye()
